@@ -60,6 +60,7 @@ if ok then
             SDL_PATCHLEVEL    =  10
         };
 
+        void SDL_GetVersion(SDL_version *version);
 
     ]]
    
