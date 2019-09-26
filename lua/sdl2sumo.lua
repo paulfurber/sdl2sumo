@@ -28,6 +28,13 @@ local sdl2sumo = {}
 
 local debug = false
 
+-- these can be changed to a full path such as '/usr/local/lib/libSDL2.so'
+-- if you have multiple versions installed and need a specific one loaded
+local SDL2_SHARED_LIBRARY = 'SDL2'
+local SDL2_IMAGE_SHARED_LIBRARY = 'SDL2_image'
+local SDL2_TTF_SHARED_LIBRARY = 'SDL2_ttf'
+local SDL2_MIXER_SHARED_LIBRARY = 'SDL2_mixer'
+
 local function debug_print(msg)
     if debug then
         print (msg)
@@ -39,9 +46,9 @@ local function load_err()
 end
 
 -- if SDL loads, add it to sdlsumo and include its definitions
-local ok = xpcall(ffi.load, load_err, 'SDL2')
+local ok = xpcall(ffi.load, load_err, SDL2_SHARED_LIBRARY)
 if ok then
-    local sdl2 = ffi.load("SDL2")
+    local sdl2 = ffi.load(SDL2_SHARED_LIBRARY)
     sdl2sumo['sdl2'] = sdl2
 
     -- SDL 2-2.0.10 definitions
