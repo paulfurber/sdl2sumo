@@ -8,6 +8,5 @@ local sdl2 = sdl2sumo['sdl2']
 ver = ffi.new('SDL_version')
 sdl2.SDL_GetVersion(ver)
 
-io.write(string.format("Loaded SDL2 library version: %d %d %d\n",
+io.write(string.format("Loaded SDL2 library version: %d.%d.%d\n",
                        ver.major, ver.minor, ver.patch))
-
